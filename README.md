@@ -10,6 +10,7 @@ By shipping consistently (code, automations, content, and learnings), I’m prov
 At the end of 30 days, I should have reusable workflows, documented builds, and a clear operating system I can repeat for any future project.
 
 ## Structure
+- [**Live Tracker (Google Sheet)**](https://docs.google.com/spreadsheets/d/1g0DzsFKLDq9Ke13c_1DlGOIPyXUMk3fjPjLywOMZmjk/edit?usp=sharing)
 - `tracker/`: Progress tracking systems (checklists, logs)
 - `builds/`: Daily outputs (code, docs, assets)
 - `templates/`: Reusable starters for workflows and agents
