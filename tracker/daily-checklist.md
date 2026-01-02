@@ -2,7 +2,7 @@
 
 | Date | Day Number | Core Topic | Shipped? | Platform Post | Status |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| 1 January 2026 | 1 | Kickoff: 30-day shipping challenge | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/30-day-ship-system-accountability-engine.html) <br> [LinkedIn](https://www.linkedin.com/posts/avnishyadav25_the-30-day-ship-system-how-i-built-my-accountability-activity-7412521632751316992-TDZs) | Published |
+| 1 January 2026 | 1 | Kickoff: 30-day shipping challenge | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/30-day-ship-system-accountability-engine.html) <br> [LinkedIn](https://www.linkedin.com/posts/avnishyadav25_the-30-day-ship-system-how-i-built-my-accountability-activity-7412521632751316992-TDZs) <br> [X Post](https://x.com/avnish_yadav25/status/2006757186358350246) / [Thread](https://x.com/avnish_yadav25/status/2006758389708439572) <br> [Threads Post](https://www.threads.com/@avnish.codes/post/DS-Whm4Eiw0) / [Thread](https://www.threads.com/@avnish.codes/post/DS-W9exEiFS) <br> [IG Carousel](https://www.instagram.com/avnish.codes/p/DS-g-b2k1pa/) | Published |
 | 2 January 2026 | 2 | Build an AI Agent in 10 minutes | [ ] | | |
 | 3 January 2026 | 3 | Prompt upgrades that 2× output quality | [ ] | | |
 | 4 January 2026 | 4 | LangChain vs alternatives (quick pick guide) | [ ] | | |

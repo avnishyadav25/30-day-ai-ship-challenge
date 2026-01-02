@@ -20,4 +20,10 @@ Every file follows: `YYYY-MM-DD_platform_content-type_topic`
 Example: `2025-04-10_x_thread_30day-kickoff`
 
 ## Commit to Ship
-No zero days. Document everything.
+
+## Guardrail Rules
+More importantly, I wrote down what I won't post. These are my guardrail rules:
+- No vague motivational content without concrete steps
+- No promises of "overnight results" or "secret hacks"
+- No content about tools I haven't personally used in the challenge
+- No engagement bait that doesn't deliver real value
