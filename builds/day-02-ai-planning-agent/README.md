@@ -7,6 +7,8 @@
 I'll show you how to build a working AI planning agent using n8n that takes any task and returns structured plans with clear next actions. You'll get the complete workflow, tested prompts, and a ready-to-use template. This isn't theory—it's the exact system I use daily to manage projects and content creation.
 
 ## The Workflow
+![AI Planning Agent Workflow](./workflow-screenshot.png)
+
 The agent has three core functions:
 1.  **Accepts any task description** (via webhook or manual input)
 2.  **Analyzes and structures the task** into logical steps
