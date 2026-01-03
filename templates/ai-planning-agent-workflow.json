@@ -3,83 +3,169 @@
     "nodes": [
         {
             "parameters": {
-                "path": "plan-task",
-                "responseMode": "lastNode",
+                "httpMethod": "POST",
+                "path": "task-planner",
                 "options": {}
             },
+            "id": "410e5b8c-afb2-437a-8d89-8ed295023c3d",
             "name": "Webhook",
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 1,
             "position": [
-                460,
-                300
+                592,
+                208
+            ],
+            "webhookId": "78205826-6a8f-4656-b3a5-70004d7dc5b7"
+        },
+        {
+            "parameters": {
+                "jsCode": "// Clean the AI response to remove markdown formatting if present\nlet rawContent = $input.first().json.text;\n\n// Remove markdown backticks and 'json' label\nconst cleanJson = rawContent.replace(/```json|```/g, \"\").trim();\n\ntry {\n  const data = JSON.parse(cleanJson);\n  return {\n    json: data\n  };\n} catch (e) {\n  // If parsing still fails, return the raw content so you can debug\n  return {\n    json: {\n      error: \"JSON Parsing failed\",\n      raw: cleanJson\n    }\n  };\n}"
+            },
+            "id": "f1482295-6742-42d5-a59e-5be8146dee48",
+            "name": "Response Parser",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                1168,
+                208
             ]
         },
         {
             "parameters": {
-                "model": "gpt-3.5-turbo",
-                "prompt": {
-                    "messages": [
+                "options": {}
+            },
+            "id": "b273340a-8ec0-4ed4-9189-808cf75e9d66",
+            "name": "Respond to Webhook",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1,
+            "position": [
+                1392,
+                208
+            ]
+        },
+        {
+            "parameters": {
+                "promptType": "define",
+                "text": "=ROLE: Expert Planning Assistant\n\nTASK: Analyze the following task and create an actionable plan.\n\n\n\nINPUT: {{ $json.body.task }}\n\n\n\nOUTPUT FORMAT: Return ONLY valid JSON with this structure:\n\n{\n\n  \"analysis\": {\n\n    \"complexity\": \"simple/medium/complex\",\n\n    \"domain\": \"primary category\",\n\n    \"key_challenges\": [\"list of 2-3 main challenges\"]\n\n  },\n\n  \"plan\": {\n\n    \"total_steps\": number,\n\n    \"estimated_total_time\": \"X hours\",\n\n    \"steps\": [\n\n      {\n\n        \"id\": 1,\n\n        \"title\": \"Clear action title\",\n\n        \"description\": \"Specific what and why\",\n\n        \"priority\": 1-3,\n\n        \"time_estimate\": \"minutes/hours\",\n\n        \"depends_on\": [\"step IDs\"],\n\n        \"resources\": [\"tools/people/info needed\"]\n\n      }\n\n    ]\n\n  },\n\n  \"next_actions\": [\n\n    {\n\n      \"action\": \"Immediate next step\",\n\n      \"why_first\": \"Reason for priority\",\n\n      \"time_to_complete\": \"X minutes\",\n\n      \"blockers\": [\"potential obstacles\"]\n\n    }\n\n  ]\n\n}\n\n\n\nRULES:\n\n- Break tasks into 3-7 manageable steps\n\n- Each step must start with an action verb\n\n- Include realistic time estimates\n\n- Identify dependencies between steps\n\n- List 2-3 next actions maximum\n\n- Be practical, not theoretical",
+                "messages": {
+                    "messageValues": [
                         {
-                            "role": "user",
-                            "content": "ROLE: Expert Planning Assistant\nTASK: Analyze the following task and create an actionable plan.\n\nINPUT: {{$json.task}}\n\nOUTPUT FORMAT: Return ONLY valid JSON with this structure:\n{\n  \"analysis\": {\n    \"complexity\": \"simple/medium/complex\",\n    \"domain\": \"primary category\",\n    \"key_challenges\": [\"list of 2-3 main challenges\"]\n  },\n  \"plan\": {\n    \"total_steps\": number,\n    \"estimated_total_time\": \"X hours\",\n    \"steps\": [\n      {\n        \"id\": 1,\n        \"title\": \"Clear action title\",\n        \"description\": \"Specific what and why\",\n        \"priority\": 1-3 (1=highest),\n        \"time_estimate\": \"minutes/hours\",\n        \"depends_on\": [\"step IDs\"],\n        \"resources\": [\"tools/people/info needed\"]\n      }\n    ]\n  },\n  \"next_actions\": [\n    {\n      \"action\": \"Immediate next step\",\n      \"why_first\": \"Reason for priority\",\n      \"time_to_complete\": \"X minutes\",\n      \"blockers\": [\"potential obstacles\"]\n    }\n  ]\n}\n\nRULES:\n- Break tasks into 3-7 manageable steps\n- Each step must start with an action verb\n- Include realistic time estimates\n- Identify dependencies between steps\n- List 2-3 next actions maximum\n- Be practical, not theoretical"
+                            "message": "You are an Expert Planning Assistant."
+                        },
+                        {
+                            "type": "HumanMessagePromptTemplate",
+                            "message": "=Analyze the following task: {{ $json.body.task }}"
                         }
                     ]
                 },
-                "options": {
-                    "temperature": 0.3,
-                    "maxTokens": 1500
-                }
+                "batching": {}
             },
-            "name": "OpenAI",
-            "type": "n8n-nodes-base.openAi",
-            "typeVersion": 1,
+            "type": "@n8n/n8n-nodes-langchain.chainLlm",
+            "typeVersion": 1.8,
             "position": [
-                680,
-                300
+                816,
+                208
             ],
-            "credentials": {
-                "openAiApi": {
-                    "id": "YOUR_CREDENTIAL_ID",
-                    "name": "OpenAI account"
-                }
-            }
+            "id": "fbeed013-a103-4d4c-9272-e225d90253a5",
+            "name": "Basic LLM Chain"
         },
         {
             "parameters": {
-                "functionCode": "const aiOutput = items[0].json.message.content;\n\n// Try to extract JSON from the response\nfunction extractJSON(text) {\n  // Look for JSON pattern\n  const jsonMatch = text.match(/\\{[\\s\\S]*\\}/);\n  if (!jsonMatch) {\n    throw new Error('No JSON found in response');\n  }\n  \n  try {\n    return JSON.parse(jsonMatch[0]);\n  } catch (e) {\n    // Try to fix common JSON issues\n    const fixed = jsonMatch[0]\n      .replace(/,\\s*}/g, '}')  // Remove trailing commas\n      .replace(/,\\s*]/g, ']')  // Remove trailing commas in arrays\n      .replace(/'/g, '\"');     // Replace single quotes\n    \n    return JSON.parse(fixed);\n  }\n}\n\nlet plan;\ntry {\n  plan = extractJSON(aiOutput);\n  \n  // Validate required structure\n  if (!plan.plan || !plan.next_actions) {\n    throw new Error('Missing required plan structure');\n  }\n  \n} catch (error) {\n  // Fallback to error structure\n  plan = {\n    error: true,\n    message: error.message,\n    raw_response: aiOutput\n  };\n}\n\nreturn [{\n  json: {\n    original_task: $('Webhook').first().json.body.task,\n    success: !plan.error,\n    plan: plan,\n    processed_at: new Date().toISOString()\n  }\n}];"
+                "model": {
+                    "__rl": true,
+                    "mode": "list",
+                    "value": "gpt-4.1-mini"
+                },
+                "builtInTools": {},
+                "options": {
+                    "timeout": 60000
+                }
             },
-            "name": "Parse Response",
-            "type": "n8n-nodes-base.function",
-            "typeVersion": 1,
+            "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+            "typeVersion": 1.3,
             "position": [
-                900,
-                300
-            ]
+                888,
+                432
+            ],
+            "id": "723a0b9d-7b84-434b-8317-725c6f8ba355",
+            "name": "OpenAI Chat Model",
+            "credentials": {
+                "openAiApi": {
+                    "id": "iZveGEsvLCNQmhYO",
+                    "name": "OpenAi account"
+                }
+            }
         }
     ],
+    "pinData": {},
     "connections": {
         "Webhook": {
             "main": [
                 [
                     {
-                        "node": "OpenAI",
+                        "node": "Basic LLM Chain",
                         "type": "main",
                         "index": 0
                     }
                 ]
             ]
         },
-        "OpenAI": {
+        "Response Parser": {
             "main": [
                 [
                     {
-                        "node": "Parse Response",
+                        "node": "Respond to Webhook",
                         "type": "main",
                         "index": 0
                     }
                 ]
             ]
+        },
+        "OpenAI Chat Model": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "Basic LLM Chain",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Basic LLM Chain": {
+            "main": [
+                [
+                    {
+                        "node": "Response Parser",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Respond to Webhook": {
+            "main": [
+                []
+            ]
         }
-    }
+    },
+    "active": false,
+    "settings": {
+        "executionOrder": "v1",
+        "availableInMCP": false
+    },
+    "versionId": "2dc8eebc-4169-4ab4-8fcc-dfa02cb415d0",
+    "meta": {
+        "templateCredsSetupCompleted": true,
+        "instanceId": "3ed29e6a64dcf47dec104c5d55a0d766c4fe258925a5941bd45f977b041986eb"
+    },
+    "id": "QatteF4rh7Zm84W5",
+    "tags": [
+        {
+            "name": "30-day-ai-challenge",
+            "id": "ylcW8L6Oaj55eoMd",
+            "updatedAt": "2026-01-02T15:24:46.908Z",
+            "createdAt": "2026-01-02T15:24:46.908Z"
+        }
+    ]
 }
