@@ -8,10 +8,6 @@
 ## TL;DR
 I'll show you how to build a working AI planning agent using n8n that takes any task and returns structured plans with clear next actions. You'll get the complete workflow, tested prompts, and a ready-to-use template. This isn't theory—it's the exact system I use daily to manage projects and content creation.
 
-> **"Build a landing page"** → **"1. Wireframe 2. Copy 3. Deploy"**
-
-**Live Webhook URL**: `https://n8n.avnishcodes.cloud/webhook/task-planner`
-
 ## The Workflow
 ![AI Planning Agent Workflow](./workflow-screenshot.png)
 
