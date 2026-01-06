@@ -1,7 +1,7 @@
 # Day 04: Why Early Devs Lose to Automation
 
 ## Output
-- **Blog Post**: (Link TBD)
+- **Blog Post**: [Why Early Developers Lose to Automation](https://blog.avnishyadav.com/2026/01/why-early-developers-lose-to-automation.html)
 - **n8n Workflow**: [Content Generator Workflow](./content-generator-workflow.json)
 
 ![Content Generator Workflow](./workflow-screenshot.png)
