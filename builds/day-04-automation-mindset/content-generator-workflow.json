@@ -16,17 +16,17 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0",
+          "value": "YOUR_GOOGLE_SHEET_ID",
           "mode": "list",
           "cachedResultName": "Social Media Content Management",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit#gid=0"
         },
         "filtersUI": {
           "values": [
@@ -47,7 +47,7 @@
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "bnRLksUFmm5rNnU1",
+          "id": "YOUR_CREDENTIAL_ID",
           "name": "Google Sheets account"
         }
       }
@@ -91,17 +91,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0",
+          "value": "YOUR_GOOGLE_SHEET_ID",
           "mode": "list",
           "cachedResultName": "Social Media Content Management",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -222,7 +222,7 @@
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "bnRLksUFmm5rNnU1",
+          "id": "YOUR_CREDENTIAL_ID",
           "name": "Google Sheets account"
         }
       }
@@ -244,7 +244,7 @@
       "name": "DeepSeek Chat Model",
       "credentials": {
         "deepSeekApi": {
-          "id": "yN07oCINL3lFSafs",
+          "id": "YOUR_CREDENTIAL_ID",
           "name": "DeepSeek account"
         }
       }
@@ -372,11 +372,11 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "d0a2a903-fe21-4fdc-922d-6443b2cb131e",
+  "versionId": "YOUR_VERSION_ID",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "3ed29e6a64dcf47dec104c5d55a0d766c4fe258925a5941bd45f977b041986eb"
+    "instanceId": "YOUR_INSTANCE_ID"
   },
-  "id": "qzAoghqSol7eKBem",
+  "id": "YOUR_WORKFLOW_ID",
   "tags": []
 }
