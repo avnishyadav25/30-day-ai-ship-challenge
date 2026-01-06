@@ -23,38 +23,38 @@ Example: `2025-04-10_x_thread_30day-kickoff`
 
 ## Daily Checklist
 
-| Date | Day Number | Core Topic | Pillar | Shipped? | Platform Post | Status |
-| :--- | :---: | :--- | :--- | :---: | :--- | :--- |
-| 1 January 2026 | 1 | Kickoff: 30-day shipping challenge | Career/Brand | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/30-day-ship-system-accountability-engine.html) <br> [LinkedIn](https://www.linkedin.com/posts/avnishyadav25_the-30-day-ship-system-how-i-built-my-accountability-activity-7412521632751316992-TDZs) <br> [X Post](https://x.com/avnish_yadav25/status/2006757186358350246) / [Thread](https://x.com/avnish_yadav25/status/2006758389708439572) <br> [Threads Post](https://www.threads.com/@avnish.codes/post/DS-Whm4Eiw0) / [Thread](https://www.threads.com/@avnish.codes/post/DS-W9exEiFS) <br> [IG Carousel](https://www.instagram.com/avnish.codes/p/DS-g-b2k1pa/) / [Reel](https://www.instagram.com/p/DTAg3Pnk6pe/) / [Post](https://www.instagram.com/p/DTAh2hiEzYj/) <br> [YT Short](https://youtube.com/shorts/tyMmfqkYYG8?feature=share) <br> [Reddit](https://www.reddit.com/r/SideProject/comments/1q1xk1x/starting_a_30day_ai_public_shipping_challenge/) <br> [Facebook](https://www.facebook.com/avnishyadav25/posts/pfbid02UP4WLNWmFoxX9YdmhViZwauuqXfzHmHJsnmWcWXg3yzDL6ciuFhVbeHMAnb5SRNUl) | Published |
-| 2 January 2026 | 2 | Build an AI Agent in 10 minutes | Build | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/first-ai-planning-agent-10-minutes-n8n-tutorial.html) <br> [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7413162844856418305/) <br> [X Post](https://x.com/avnish_yadav25/status/2007398320713691152) / [Thread](https://x.com/avnish_yadav25/status/2007397864096620549) <br> [Threads Post](https://www.threads.com/@avnish.codes/post/DTC5SHRkrH6) / [Thread](https://www.threads.com/@avnish.codes/post/DTC5Yw5kqOZ?xmt=AQF0BYzk9N4qVfQnqDIqtVw0tR_-SYyv-LPTQce5zSBUETI) | Shipped |
-| 3 January 2026 | 3 | Prompt upgrades that 2× output quality | Automate | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/personal-prompt-system-double-ai-output-quality.html) | Shipped |
-| 4 January 2026 | 4 | LangChain vs alternatives (quick pick guide) | Build | [ ] | | |
-| 5 January 2026 | 5 | Agent memory explained simply | Build | [ ] | | |
-| 6 January 2026 | 6 | Build: agent + web research summary | Build | [ ] | | |
-| 7 January 2026 | 7 | Weekly recap #1 | Proof | [ ] | | |
-| 8 January 2026 | 8 | Automation: inbox triage with n8n | Automate | [ ] | | |
-| 9 January 2026 | 9 | Calendar automation: daily plan email | Automate | [ ] | | |
-| 10 January 2026 | 10 | Automate social posting pipeline | Automate | [ ] | | |
-| 11 January 2026 | 11 | Micro-SaaS idea generation | Ship | [ ] | | |
-| 12 January 2026 | 12 | Pricing basics for Micro-SaaS | Ship | [ ] | | |
-| 13 January 2026 | 13 | Landing page teardown | Ship | [ ] | | |
-| 14 January 2026 | 14 | Weekly recap #2 | Proof | [ ] | | |
-| 15 January 2026 | 15 | Build: agent saves outputs to Notion | Build | [ ] | | |
-| 16 January 2026 | 16 | GitHub repo hygiene | Career/Brand | [ ] | | |
-| 17 January 2026 | 17 | Daily dev productivity system | Career/Brand | [ ] | | |
-| 18 January 2026 | 18 | Salesforce + AI use cases | Build | [ ] | | |
-| 19 January 2026 | 19 | Why agents fail (debug checklist) | Build | [ ] | | |
-| 20 January 2026 | 20 | MVP scope rules | Ship | [ ] | | |
-| 21 January 2026 | 21 | Weekly recap #3 | Proof | [ ] | | |
-| 22 January 2026 | 22 | RAG basics (demo) | Build | [ ] | | |
-| 23 January 2026 | 23 | Choose a vector DB (3 questions) | Build | [ ] | | |
-| 24 January 2026 | 24 | Open-source vs paid tools | Automate | [ ] | | |
-| 25 January 2026 | 25 | Content system: 1 idea → 10 assets | Automate | [ ] | | |
-| 26 January 2026 | 26 | Portfolio proof: best builds | Proof | [ ] | | |
-| 27 January 2026 | 27 | Community Q&A | Career/Brand | [ ] | | |
-| 28 January 2026 | 28 | Weekly recap #4 | Proof | [ ] | | |
-| 29 January 2026 | 29 | Month results + what changed | Proof | [ ] | | |
-| 30 January 2026 | 30 | Next challenge + offer | Career/Brand | [ ] | | |
+| Day | Core Topic | Pillar | Shipped? | Platform Post | Description |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 1 | Kickoff: 30-Day AI shipping challenge | Career/Brand | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/30-day-ship-system-accountability-engine.html) <br> [LinkedIn](https://www.linkedin.com/posts/avnishyadav25_the-30-day-ship-system-how-i-built-my-accountability-activity-7412521632751316992-TDZs) <br> [X Post](https://x.com/avnish_yadav25/status/2006757186358350246) / [Thread](https://x.com/avnish_yadav25/status/2006758389708439572) <br> [Threads Post](https://www.threads.com/@avnish.codes/post/DS-Whm4Eiw0) / [Thread](https://www.threads.com/@avnish.codes/post/DS-W9exEiFS) <br> [IG Carousel](https://www.instagram.com/avnish.codes/p/DS-g-b2k1pa/) / [Reel](https://www.instagram.com/p/DTAg3Pnk6pe/) / [Post](https://www.instagram.com/p/DTAh2hiEzYj/) <br> [YT Short](https://youtube.com/shorts/tyMmfqkYYG8?feature=share) <br> [Reddit](https://www.reddit.com/r/SideProject/comments/1q1xk1x/starting_a_30day_ai_public_shipping_challenge/) <br> [Facebook](https://www.facebook.com/avnishyadav25/posts/pfbid02UP4WLNWmFoxX9YdmhViZwauuqXfzHmHJsnmWcWXg3yzDL6ciuFhVbeHMAnb5SRNUl) | ICP + content principles + "what I won't post" rules + cadence math |
+| 2 | Build an AI Agent in 10 minutes | Build | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/first-ai-planning-agent-10-minutes-n8n-tutorial.html) <br> [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7413162844856418305/) <br> [X Post](https://x.com/avnish_yadav25/status/2007398320713691152) / [Thread](https://x.com/avnish_yadav25/status/2007397864096620549) <br> [Threads Post](https://www.threads.com/@avnish.codes/post/DTC5SHRkrH6) / [Thread](https://www.threads.com/@avnish.codes/post/DTC5Yw5kqOZ?xmt=AQF0BYzk9N4qVfQnqDIqtVw0tR_-SYyv-LPTQce5zSBUETI) | Agents 101: roles/tools/memory + failure modes |
+| 3 | Prompt upgrades that 2× output quality | Automate | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/personal-prompt-system-double-ai-output-quality.html) | Prompt frameworks: role/context/constraints + eval basics |
+| 4 | Why Early Devs Lose to Automation | Mindset | [ ] | | Automation is leverage, not shortcuts. Early devs believe automation is "advanced" or "later-stage." That belief is wrong. |
+| 5 | What n8n Really Is (Not Just a Tool) | Build | [ ] | | n8n is a thinking framework. Most tutorials explain n8n as "Zapier alternative." That's misleading. |
+| 6 | Your First Real Automation (No AI) | Build | [ ] | | Logic before intelligence. AI is useless without logic. |
+| 7 | When AI Actually Adds Value | Build | [ ] | | AI = decision engine, not replacement. Classification, summarization, scoring, rewriting. |
+| 8 | Prompting Is Not Chatting | Automate | [ ] | | Prompts are contracts. Prompts as specifications with inputs, constraints, and outputs. |
+| 9 | Why Your AI Output Is Generic | Automate | [ ] | | Missing constraints cause bad output. AI produces average output because developers give average instructions. |
+| 10 | The Automation Mental Model | Mindset | [ ] | | Think in flows, not features. Input → transform → decide → output. |
+| 11 | Automating Learning Itself | Automate | [ ] | | Learn faster with systems. Automate notes, summaries, and revision using n8n + AI. |
+| 12 | Building Your First AI Agent (Properly) | Build | [ ] | | Agents need structure. Agents as workflows with memory and rules — not magic bots. |
+| 13 | Why Most AI Agents Fail | Build | [ ] | | Missing guardrails. Hallucinations, memory drift, and lack of validation. |
+| 14 | Memory in Automation Systems | Build | [ ] | | Memory must be controlled. Short-term vs long-term memory and when to use each. |
+| 15 | Scoring AI Output | Automate | [ ] | | AI must be judged. Scoring outputs (clarity, usefulness, accuracy) and rejecting bad responses. |
+| 16 | Multi-Step AI Pipelines | Build | [ ] | | One call is not enough. Chaining AI steps (generate → score → rewrite) produces professional output. |
+| 17 | Parallel vs Sequential Automation | Build | [ ] | | Speed vs accuracy tradeoff. When to fan out calls and when to gate them. |
+| 18 | Debugging Automations | Career | [ ] | | Systems fail quietly. Logging, checkpoints, and failure visibility in n8n. |
+| 19 | Automation as Portfolio | Career | [ ] | | Proof beats certificates. Automation demos outperform resumes. |
+| 20 | Thinking Like a Systems Engineer | Career | [ ] | | Systems > scripts. Logic, AI, memory, scoring, flows — the mindset shift. |
+| 21 | Why Consistency Beats Talent | Mindset | [ ] | | Systems remove motivation. Automation removes reliance on discipline and motivation. |
+| 22 | Turning Automations into Products | Career | [ ] | | Internal tools → assets. Personal automations become products or templates. |
+| 23 | Content Automation for Devs | Automate | [ ] | | Teaching scales trust. Dev content can be automated without losing quality. |
+| 24 | Avoiding Automation Overengineering | Build | [ ] | | Simple > complex. Restraint and minimalism in system design. |
+| 25 | When NOT to Automate | Mindset | [ ] | | Judgment matters. Opportunity cost and maintenance burden. |
+| 26 | How Seniors Actually Work | Career | [ ] | | Seniors think in leverage. Junior vs senior workflows using automation examples. |
+| 27 | Building in Public (Correctly) | Career | [ ] | | Teach systems, not progress. Why posting "learning" fails and teaching systems works. |
+| 28 | Your Automation Stack Blueprint | Build | [ ] | | A reusable architecture. Full stack as a reference model. |
+| 29 | 30 Days of Systems: Lessons | Proof | [ ] | | What actually worked. Real learnings, not vanity metrics. |
+| 30 | Your Next 90-Day Path | Career | [ ] | | Direction beats speed. Clear next roadmap using automation. |
 
 ## Guardrail Rules
 More importantly, I wrote down what I won't post. These are my guardrail rules:
