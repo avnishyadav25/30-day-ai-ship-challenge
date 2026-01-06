@@ -3,6 +3,8 @@
 ## Output
 - **Blog Post**: [Why Early Developers Lose to Automation](https://blog.avnishyadav.com/2026/01/why-early-developers-lose-to-automation.html)
 - **LinkedIn**: [Post](https://www.linkedin.com/posts/avnishyadav25_developers-automation-n8n-activity-7414157712055365632-UyHD)
+- **X (Twitter)**: [Post](https://x.com/avnish_yadav25/status/2008392833741578500)
+- **Threads**: [Post](https://www.threads.com/@avnish.codes/post/DTJ9Qiwkoa4)
 - **n8n Workflow**: [Content Generator Workflow](./content-generator-workflow.json)
 
 ![Content Generator Workflow](./workflow-screenshot.png)
