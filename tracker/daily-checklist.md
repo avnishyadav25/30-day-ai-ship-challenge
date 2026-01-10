@@ -9,7 +9,7 @@
 | 5 | What n8n Really Is (Not Just a Tool) | Build | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/n8n-thinking-framework-for-developers.html) | n8n is a thinking framework. Most tutorials explain n8n as "Zapier alternative." That's misleading. |
 | 6 | Your First Real Automation (No AI) | Build | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/stop-adding-ai-before-you-have-logic-build-reliable-n8n-workflows-first.html) <br> [LinkedIn](https://www.linkedin.com/posts/avnishyadav25_n8n-automation-aiworkflows-activity-7415001831686369280-Qch8) | Logic before intelligence. AI is useless without logic. |
 | 7 | When AI Actually Adds Value | Build | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/ai-decision-engine-not-replacement.html) | AI = decision engine, not replacement. Classification, summarization, scoring, rewriting. |
-| 8 | Prompting Is Not Chatting | Automate | [ ] | | Prompts are contracts. Prompts as specifications with inputs, constraints, and outputs. |
+| 8 | Prompting Is Not Chatting | Automate | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/stop-writing-prompts-that-fail-contract-based-approach.html) | Prompts are contracts. Prompts as specifications with inputs, constraints, and outputs. |
 | 9 | Why Your AI Output Is Generic | Automate | [ ] | | Missing constraints cause bad output. AI produces average output because developers give average instructions. |
 | 10 | The Automation Mental Model | Mindset | [ ] | | Think in flows, not features. Input → transform → decide → output. |
 | 11 | Automating Learning Itself | Automate | [ ] | | Learn faster with systems. Automate notes, summaries, and revision using n8n + AI. |
