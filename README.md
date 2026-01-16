@@ -36,7 +36,7 @@ Example: `2025-04-10_x_thread_30day-kickoff`
 | 9 | Why Your AI Output Is Generic | Automate | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/ai-output-average-missing-constraints.html) | Missing constraints cause bad output. AI produces average output because developers give average instructions. |
 | 10 | The Automation Mental Model | Mindset | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/automation-breaking-think-features-not-flows.html) | Think in flows, not features. Input → transform → decide → output. |
 | 11 | Automating Learning Itself | Automate | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/stop-studying-manually-automate-learning-n8n-ai.html) | Learn faster with systems. Automate notes, summaries, and revision using n8n + AI. |
-| 12 | Building Your First AI Agent (Properly) | Build | [ ] | | Agents need structure. Agents as workflows with memory and rules — not magic bots. |
+| 12 | Building Your First AI Agent (Properly) | Build | [x] | [Blog Post](https://blog.avnishyadav.com/2026/01/ai-agents-structured-workflows-not-magic.html) | Agents need structure. Agents as workflows with memory and rules — not magic bots. |
 | 13 | Why Most AI Agents Fail | Build | [ ] | | Missing guardrails. Hallucinations, memory drift, and lack of validation. |
 | 14 | Memory in Automation Systems | Build | [ ] | | Memory must be controlled. Short-term vs long-term memory and when to use each. |
 | 15 | Scoring AI Output | Automate | [ ] | | AI must be judged. Scoring outputs (clarity, usefulness, accuracy) and rejecting bad responses. |
