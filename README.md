@@ -1,27 +1,152 @@
-# 30-Day Ship Challenge
+# 30-Day AI Ship Challenge
 
-## Purpose
-This 30-day challenge is about building the habit of shipping real work in public, every day.
+Build in public for 30 days to turn ideas into systems and systems into shipped work.
 
-The goal is not perfection or viral content — it’s to create systems that remove decision fatigue, enforce accountability, and turn ideas into tangible outputs.
+**Status:** Days 1–14 shipped between 2026-01-01 and 2026-01-17. Days 15–30 are planned topics and have not shipped.
 
-By shipping consistently (code, automations, content, and learnings), I’m proving that progress comes from systems and execution, not motivation.
+## What this is and why
 
-At the end of 30 days, I should have reusable workflows, documented builds, and a clear operating system I can repeat for any future project.
+This challenge was about building the habit of shipping real work in public, every day.
 
-## Structure
-- [**Live Tracker (Google Sheet)**](https://docs.google.com/spreadsheets/d/15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0/edit?usp=sharing)
-- `tracker/`: Progress tracking systems (checklists, logs)
-- `builds/`: Daily outputs (code, docs, assets)
-- `templates/`: Reusable starters for workflows and agents
+The goal was not perfection or viral content. It was to create systems that remove decision fatigue, enforce
+accountability, and turn ideas into tangible outputs: code, automations, content and learnings.
 
-## Naming Convention
-Every file follows: `YYYY-MM-DD_platform_content-type_topic`
-Example: `2025-04-10_x_thread_30day-kickoff`
+Each day has a topic and a pillar (Build, Automate, Mindset, Career, Proof). Each shipped day has a folder in
+`builds/`, a published post, and a tick in the tracker below.
 
-## Commit to Ship
+## What's inside
 
-## Daily Checklist
+- **3 importable n8n workflows** (Days 2–4): an AI planning agent, a prompt evaluator and a content generator.
+- **A prompt library** of 9 Markdown prompts (Day 3), each with Role, Context, Task, Format, Examples and Constraints.
+- **10 written guides** (Days 5–14) on designing n8n and AI workflows: logic before AI, AI as a decision engine,
+  prompts as contracts, output constraints, flow thinking, learning automation, structured agents, guardrails and
+  memory. They include Code-node snippets you can paste into n8n.
+- **Templates**: an agent spec template, an empty n8n workflow, and a copy of the planning agent.
+- **The tracker**: the 30-day plan with links to every published post.
+
+## Workflows
+
+| Day | Workflow | File | What it does | Needs |
+|:---:|---|---|---|---|
+| 2 | AI Planning Agent | [`builds/day-02-ai-planning-agent/workflow.json`](builds/day-02-ai-planning-agent/workflow.json) | Takes a task over a webhook and returns a JSON plan: analysis, 3–7 steps with time estimates and dependencies, and 2–3 next actions. | OpenAI credential (model `gpt-4.1-mini`) |
+| 3 | Prompt Eval + Rewrite | [`builds/day-03-prompt-system/workflow.json`](builds/day-03-prompt-system/workflow.json) | An n8n form: paste a prompt (plus optional test input, audience, tone); DeepSeek rewrites it and scores it out of 10 (clarity, completeness, tone, format). | `DEEPSEEK_API_KEY`; see Known issues |
+| 4 | Content Generator | [`builds/day-04-automation-mindset/content-generator-workflow.json`](builds/day-04-automation-mindset/content-generator-workflow.json) | Reads a day from a Google Sheet plan, has DeepSeek draft an Instagram script (Hinglish), a blog post and a LinkedIn post as one JSON object, validates it, and writes it back to the sheet. | Google Sheets and DeepSeek credentials, your sheet ID |
+
+`templates/ai-planning-agent-workflow.json` is the same workflow as Day 2, and `resources/Content Generator.json` is the
+same as Day 4.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  T["Tracker<br/>README + tracker/daily-checklist.md"] --> B["builds/day-NN-topic/"]
+  B --> W["n8n workflow JSON<br/>or prompts or a guide"]
+  W -->|import| N["n8n"]
+  N --> L["OpenAI / DeepSeek"]
+  N <--> S["Google Sheet plan"]
+  B --> P["Blog post + social posts"]
+  P -->|"mark Day N as shipped"| T
+```
+
+- Day 2: Webhook (`POST task-planner`) → Basic LLM Chain with the OpenAI Chat Model → Response Parser (Code) → Respond
+  to Webhook.
+- Day 3: Form Trigger → HTTP Request to the DeepSeek chat completions API → Clean & Parse JSON (Code) → Form result page.
+- Day 4: Manual Trigger → Read Plan Rows (Google Sheets) → Agent with the DeepSeek Chat Model → Parse + Validate JSON
+  (Code) → IF Valid Output → Update Row in Sheet (Google Sheets).
+
+## Quick start
+
+There is nothing to install or build. You need an n8n instance (self-hosted or n8n Cloud).
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/avnishyadav25/30-day-ai-ship-challenge.git
+   ```
+
+2. In n8n, create a new workflow, open the menu and choose **Import from File**. Pick one of the workflow files above.
+3. Add the credentials the workflow needs (see below) and attach them to the nodes that show a credential warning.
+4. Run it with **Execute workflow** or the node's test button. All exports are saved inactive; activate a workflow
+   only if you want its production URL.
+
+### Credentials and environment variables (names only)
+
+| Name | Type | Used by |
+|---|---|---|
+| `openAiApi` | n8n credential (OpenAI) | Day 2, OpenAI Chat Model node |
+| `deepSeekApi` | n8n credential (DeepSeek) | Day 4, DeepSeek Chat Model node |
+| `googleSheetsOAuth2Api` | n8n credential (Google Sheets OAuth2) | Day 4, both Google Sheets nodes |
+| `DEEPSEEK_API_KEY` | environment variable of the n8n instance | Day 3, read with `$env` in the HTTP Request header; the instance must allow env access in nodes (n8n setting `N8N_BLOCK_ENV_ACCESS_IN_NODE`) |
+
+Never commit keys. The exports in this repo contain no API keys.
+
+## Usage
+
+### Day 2: AI Planning Agent
+
+Call the webhook with a JSON body that has a `task` field:
+
+```bash
+curl -X POST <YOUR_N8N_WEBHOOK_URL>/task-planner \
+  -H 'Content-Type: application/json' \
+  -d '{"task": "Build a landing page"}'
+```
+
+The response follows the schema in [`planning_prompt.md`](builds/day-02-ai-planning-agent/planning_prompt.md):
+`analysis` (complexity, domain, key_challenges), `plan` (total_steps, estimated_total_time, steps) and `next_actions`.
+If the model returns invalid JSON, the parser returns `{ "error": "JSON Parsing failed", "raw": "…" }` instead of
+failing. After import, check that the Webhook node responds using the "Respond to Webhook" node.
+
+### Day 3: Prompt Eval + Rewrite
+
+Fix the URL first (see Known issues), set `DEEPSEEK_API_KEY`, then open the form URL from the Form Trigger node. The
+prompts it was built for are in [`builds/day-03-prompt-system/prompts/`](builds/day-03-prompt-system/prompts/).
+
+### Day 4: Content Generator
+
+Make a Google Sheet with the columns `Day`, `Core Topic`, `Pillar`, `What I Learn (Core Lesson)`,
+`Description (200–300 words)`, `CTA`, `Picked`, `Status`, `Result`, and put its ID in place of `YOUR_GOOGLE_SHEET_ID`
+in both Google Sheets nodes. The read node filters on the `Picked` column; adjust that filter to choose which rows run.
+Valid output is written to the `Result` column of the row with the same `Day`. The export includes pinned sample data
+(the Day 1 row and a Day 1 draft), so you can test the parsing and validation steps before connecting any account.
+The agent prompt is in [`content-generator-prompt.md`](builds/day-04-automation-mindset/content-generator-prompt.md).
+
+## Known issues
+
+- **Day 3:** the HTTP Request node's URL field contains Markdown link text
+  (`[https://api.deepseek.com/chat/completions](…)`). Replace it with `https://api.deepseek.com/chat/completions`
+  before running.
+- **Day 2:** the Day 2 README describes `gpt-3.5-turbo`, temperature 0.3 and 1500 max tokens; the exported workflow
+  uses `gpt-4.1-mini` with a 60-second timeout. The workflow file is the source of truth.
+- Days 5–14 are written guides; their snippets are not exported as workflows or tested in this repo.
+
+## Demo
+
+<!-- demo video: TBD -->
+
+Day 2, AI Planning Agent:
+
+![AI Planning Agent workflow in n8n](builds/day-02-ai-planning-agent/workflow-screenshot.png)
+
+Day 4, Content Generator:
+
+![Content Generator workflow in n8n](builds/day-04-automation-mindset/workflow-screenshot.png)
+
+## Repository layout
+
+```text
+builds/      one folder per shipped day: day-01-system-setup … day-14-memory-management
+templates/   agent-spec-template.md, n8n-workflow-template.json, ai-planning-agent-workflow.json
+tracker/     daily-checklist.md (same table as below)
+resources/   Content Generator.json (copy of the Day 4 workflow)
+```
+
+Day folders are named `day-NN-short-topic`. The [Live Tracker (Google Sheet)](https://docs.google.com/spreadsheets/d/15Ke4jvX-xAfAcp3QwvxNKi6e1kJIQlfceT_ITaokwo0/edit?usp=sharing)
+mirrors the plan.
+
+## Daily checklist
+
+Days 1–14 shipped. Days 15–30 are planned and not shipped.
 
 | Day | Core Topic | Pillar | Shipped? | Platform Post | Description |
 | :---: | :--- | :--- | :---: | :--- | :--- |
@@ -56,9 +181,19 @@ Example: `2025-04-10_x_thread_30day-kickoff`
 | 29 | 30 Days of Systems: Lessons | Proof | [ ] | | What actually worked. Real learnings, not vanity metrics. |
 | 30 | Your Next 90-Day Path | Career | [ ] | | Direction beats speed. Clear next roadmap using automation. |
 
-## Guardrail Rules
-More importantly, I wrote down what I won't post. These are my guardrail rules:
+## Guardrail rules
+
+What I won't post:
+
 - No vague motivational content without concrete steps
 - No promises of "overnight results" or "secret hacks"
 - No content about tools I haven't personally used in the challenge
 - No engagement bait that doesn't deliver real value
+
+## License
+
+No license file yet, so default copyright applies.
+
+## Author
+
+Avnish Yadav, AI automation engineer. Website: https://avnishyadav.com
